@@ -1,5 +1,9 @@
 # Voice Journal AI
 
+Note: This is a failed attempt :( 
+
+keeping it here anyway
+
 An AI-powered voice journaling assistant built with AgentStack that helps you process and reflect on your daily thoughts and experiences.
 
 ## Features
