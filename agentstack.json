@@ -1,0 +1,6 @@
+{
+  "framework": "crewai",
+  "agentstack_version": "0.3.5",
+  "template": "voicejournal",
+  "template_version": "4"
+}
