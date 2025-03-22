@@ -1,37 +1,53 @@
-# voicejournal
+# Voice Journal AI
 
+An AI-powered voice journaling assistant built with AgentStack that helps you process and reflect on your daily thoughts and experiences.
 
-## How to build your Crew Agent
-### With the CLI
-Add an agent using AgentStack with the CLI:  
-`agentstack generate agent <agent_name>`  
-You can also shorten this to `agentstack g a <agent_name>`  
-For wizard support use `agentstack g a <agent_name> --wizard`  
-Finally for creation in the CLI alone, use `agentstack g a <agent_name> --role/-r <role> --goal/-g <goal> --backstory/-b <backstory> --model/-m <provider/model>`
+## Features
 
-This will automatically create a new agent in the `agents.yaml` config as well as in your code. Either placeholder strings will be used, or data included in the wizard.
+- Voice-based journaling
+- Automatic transcription using OpenAI Whisper
+- Emotional analysis and theme detection
+- Personalized reflection questions
+- Persistent storage of journal entries
 
-Similarly, tasks can be created with `agentstack g t <tool_name>`
+## Setup
 
-Add tools with `agentstack tools add` and view tools available with `agentstack tools list`
+1. Clone this repository
+2. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
 
-## How to use your Agent
-In this directory, run `uv pip install --requirements pyproject.toml`
+3. Create a `.env` file with your OpenAI API key:
+```
+OPENAI_API_KEY=your_openai_api_key
+```
 
-To run your project, use the following command:  
-`agentstack run`
+## Usage
 
-This will initialize your crew of AI agents and begin task execution as defined in your configuration in the main.py file.
+1. Run the voice journal:
+```bash
+python src/main.py
+```
 
-#### Replay Tasks from Latest Crew Kickoff:
+2. The AI crew will:
+   - Transcribe your voice recording
+   - Analyze your journal entry for emotions and themes
+   - Generate thoughtful reflection questions
+   - Save your entries for future reference
 
-CrewAI now includes a replay feature that allows you to list the tasks from the last run and replay from a specific one. To use this feature, run:  
-`crewai replay <task_id>`  
-Replace <task_id> with the ID of the task you want to replay.
+## Project Structure
 
-#### Reset Crew Memory
-If you need to reset the memory of your crew before running it again, you can do so by calling the reset memory feature:  
-`crewai reset-memory`  
-This will clear the crew's memory, allowing for a fresh start.
+- `src/crew.py`: Main AgentStack crew implementation with agents
+- `src/main.py`: CLI interface and entry point
+- `data/`: Directory for storing journal entries
 
-> 🪩 Project built with [AgentStack](https://github.com/AgentOps-AI/AgentStack)
+## Requirements
+
+- Python 3.8+
+- OpenAI API key
+- Microphone for voice recording
+
+## Note
+
+This is a basic implementation. Make sure you have a working microphone and proper audio input setup for the best experience.

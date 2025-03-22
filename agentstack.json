@@ -1,6 +1,49 @@
 {
-  "framework": "crewai",
-  "agentstack_version": "0.3.5",
-  "template": "voicejournal",
-  "template_version": "4"
+    "framework": "crewai",
+    "agentstack_version": "0.4.4",
+    "template": "voicejournal",
+    "template_version": "4",
+    "config": {
+        "project": {
+            "name": "voicejournal",
+            "description": "AI-powered voice journaling assistant"
+        },
+        "agents": {
+            "transcriber": {
+                "name": "Transcriber",
+                "goal": "Accurately transcribe voice recordings to text",
+                "backstory": "Expert in converting audio to text with high accuracy",
+                "tools": ["transcribe_audio"]
+            },
+            "analyzer": {
+                "name": "Journal Analyzer",
+                "goal": "Analyze journal entries for emotions, themes, and insights",
+                "backstory": "Skilled psychologist specializing in emotional analysis and personal growth",
+                "tools": ["analyze_entry"]
+            },
+            "reflection": {
+                "name": "Reflection Guide",
+                "goal": "Generate meaningful questions for deeper self-reflection",
+                "backstory": "Expert in personal development and introspective questioning",
+                "tools": ["generate_reflection_questions"]
+            }
+        },
+        "tasks": {
+            "transcribe_entry": {
+                "description": "Transcribe the voice journal entry to text",
+                "agent": "transcriber",
+                "expected_output": "Transcribed text of the journal entry"
+            },
+            "analyze_journal": {
+                "description": "Analyze the journal entry for emotions and themes",
+                "agent": "analyzer",
+                "expected_output": "Analysis of emotions, themes, and insights"
+            },
+            "generate_reflections": {
+                "description": "Generate thoughtful reflection questions",
+                "agent": "reflection",
+                "expected_output": "List of reflection questions"
+            }
+        }
+    }
 }

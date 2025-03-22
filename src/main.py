@@ -1,57 +1,52 @@
 #!/usr/bin/env python
 import sys
 from crew import VoicejournalCrew
-import agentstack
-import agentops
+from dotenv import load_dotenv
 
-agentops.init(default_tags=agentstack.get_tags())
+# Load environment variables
+load_dotenv()
 
-instance = VoicejournalCrew().crew()
-
-def run():
+def run(audio_file):
     """
     Run the agent.
     """
-    instance.kickoff(inputs=agentstack.get_inputs())
+    crew = VoicejournalCrew()
+    instance = crew.crew()
+    instance.kickoff(inputs={"audio_file": audio_file})
 
 
 def train():
     """
     Train the crew for a given number of iterations.
     """
-    try:
-        instance.train(
-            n_iterations=int(sys.argv[1]), 
-            filename=sys.argv[2], 
-            inputs=agentstack.get_inputs(), 
-        )
-    except Exception as e:
-        raise Exception(f"An error occurred while training the crew: {e}")
+    pass
 
 
 def replay():
     """
     Replay the crew execution from a specific task.
     """
-    try:
-        instance.replay(task_id=sys.argv[1])
-    except Exception as e:
-        raise Exception(f"An error occurred while replaying the crew: {e}")
+    pass
 
 
 def test():
     """
     Test the crew execution and returns the results.
     """
-    try:
-        instance.test(
-            n_iterations=int(sys.argv[1]), 
-            openai_model_name=sys.argv[2], 
-            inputs=agentstack.get_inputs(), 
-        )
-    except Exception as e:
-        raise Exception(f"An error occurred while replaying the crew: {e}")
+    pass
+
+
+def main():
+    """
+    Main function.
+    """
+    if len(sys.argv) < 2:
+        print("Please provide an audio file path")
+        sys.exit(1)
+    
+    audio_file = sys.argv[1]
+    run(audio_file)
 
 
 if __name__ == '__main__':
-    run()
+    main()

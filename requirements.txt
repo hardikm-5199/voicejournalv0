@@ -1,0 +1,5 @@
+crewai>=0.12.1
+openai>=1.68.2
+python-dotenv>=1.0.1
+pathlib>=1.0.1
+langchain>=0.1.0
